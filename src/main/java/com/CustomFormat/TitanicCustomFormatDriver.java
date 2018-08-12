@@ -1,5 +1,14 @@
 package com.CustomFormat;
 
+/*
+Find out the number of people who died and survived, along with their genders.
+Column 1: PassengerId
+Column 2: Survived (survived=0 & died=1)
+Column 3: Pclass
+Column 4: Name
+Column 5: Sex
+Column 6: Age
+ */
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
@@ -13,12 +22,14 @@ import java.io.IOException;
 public class TitanicCustomFormatDriver {
     private static Logger logger = Logger.getLogger(TitanicCustomFormatDriver.class);
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException,
+    public static void run(String input,String output) throws IOException, ClassNotFoundException,
             InterruptedException {
 
         logger.info("TitanicCustomFormatDriver Job Started");
         Configuration conf = new Configuration();
+
         Job job = Job.getInstance(conf, "TitanicCustomFormatDriver starts");
+
         job.setJarByClass(TitanicCustomFormatDriver.class);
 
         job.setInputFormatClass(TitanicInputFormat.class);
@@ -33,10 +44,8 @@ public class TitanicCustomFormatDriver {
 
         job.setOutputFormatClass(TextOutputFormat.class);
 
-        Path out=new Path(args[1]);
-        out.getFileSystem(conf).delete(out);
-        FileInputFormat.addInputPath(job,new Path(args[0]));
-        FileOutputFormat.setOutputPath(job, new Path(args[1]));
+        FileInputFormat.addInputPath(job,new Path(input));
+        FileOutputFormat.setOutputPath(job, new Path(output));
         job.waitForCompletion(true);
     }
 }

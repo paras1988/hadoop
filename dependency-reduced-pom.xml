@@ -18,7 +18,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>com.CustomFormat.TitanicCustomFormatDriver</mainClass>
+                  <mainClass>com.Application</mainClass>
                 </transformer>
               </transformers>
             </configuration>

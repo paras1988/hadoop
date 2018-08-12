@@ -24,10 +24,14 @@ hadoop fs -copyFromLocal inputData.txt /titanic/input/
 
 hadoop jar titanic.jar com.CustomFormat.TitanicCustomFormatDriver /titanic/input/ /titanic/output/
 
+hadoop fs -mkdir /xmlOutputFormat
+hadoop fs -mkdir /xmlOutputFormat/input
+hadoop fs -mkdir /xmlOutputFormat/output
+hadoop fs -copyFromLocal xmloutFomat_input.txt /xmlOutputFormat/input/
+
 
 Cmnds:
 yarn application -kill application_1534013631776_0002
-
 
 
 Problems:
@@ -97,4 +101,5 @@ hdfs dfsadmin -safemode get
 
  Debug tips:
  localhost:8088/conf
+ put more files in input to see mapper increased
 

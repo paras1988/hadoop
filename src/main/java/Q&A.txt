@@ -1,0 +1,16 @@
+Each map and reduce task run on a container
+container is like mini jvm allocated to run one map or reduce task
+
+main schedular - resource manager
+helper - node manager for each node
+
+no. of map task(1 mapper) depends on number of input files.
+if input files size is greater than minimum block size it gets splitted.
+
+
+com.Application Master - The ApplicationMaster is, in effect, an instance of a framework-specific
+library and is responsible for negotiating resources from the ResourceManager and working
+with the NodeManager(s) to execute and monitor the containers and their resource consumption.
+
+
+https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
