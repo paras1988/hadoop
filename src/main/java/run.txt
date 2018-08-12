@@ -103,3 +103,6 @@ hdfs dfsadmin -safemode get
  localhost:8088/conf
  put more files in input to see mapper increased
 
+ InstallSite:
+ https://www.youtube.com/watch?v=cSTQs83GtnI
+

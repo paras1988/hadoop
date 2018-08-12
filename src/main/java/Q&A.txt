@@ -14,3 +14,5 @@ with the NodeManager(s) to execute and monitor the containers and their resource
 
 
 https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
+
+https://www.guru99.com/hadoop-mapreduce-interview-question.html
