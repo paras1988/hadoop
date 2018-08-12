@@ -1,0 +1,9 @@
+1,0,abc,parasM1,M,23
+2,1,abc,parasF2,F,21
+3,1,abc,parasM3,M,25
+4,0,abc,parasF4,F,26
+5,1,abc,parasF5,F,22
+6,1,abc,parasM6,M,24
+7,0,abc,parasF7,F,26
+8,1,abc,parasF8,F,22
+9,1,abc,parasM9,M,24

@@ -1,0 +1,94 @@
+service sshd restart
+hdfs namenode -format
+cd /hadoop/sbin
+./start-yarn.sh
+./start-dfs.sh
+
+cd /home/paras.agarwal/hadoop/sbin
+
+./stop-yarn.sh
+./stop-dfs.sh
+
+hdfs namenode -format
+
+
+./start-yarn.sh
+./start-dfs.sh
+
+cd ../jars
+
+hadoop fs -mkdir /titanic
+hadoop fs -mkdir /titanic/input
+hadoop fs -mkdir /titanic/output
+hadoop fs -copyFromLocal inputData.txt /titanic/input/
+
+hadoop jar titanic.jar com.CustomFormat.TitanicCustomFormatDriver /titanic/input/ /titanic/output/
+
+
+Cmnds:
+yarn application -kill application_1534013631776_0002
+
+
+
+Problems:
+Retrying connect to server: 0.0.0.0/0.0.0.0:8032
+
+yarn-site.xml
+<property>
+    <name>yarn.resourcemanager.hostname</name>
+    <value>127.0.0.1</value>
+</property>
+<property>
+<name>yarn.resourcemanager.address</name>
+<value>127.0.0.1:8032</value>
+</property>
+<property>
+<name>yarn.resourcemanager.scheduler.address</name>
+<value>127.0.0.1:8030</value>
+</property>
+<property>
+<name>yarn.resourcemanager.resource-tracker.address</name>
+<value>127.0.0.1:8031</value>
+</property>
+
+
+stop password promp
+
+ssh-keygen -t rsa -P ""
+cat $HOME/.ssh/id_rsa.pub >> $HOME/.ssh/authorized_keys
+ssh localhost
+
+
+accepted but not running
+<property>
+  <name>yarn.nodemanager.resource.memory-mb</name>
+  <value>2200</value>
+  <description>Amount of physical memory, in MB, that can be allocated for containers.</description>
+</property>
+
+<property>
+  <name>yarn.scheduler.minimum-allocation-mb</name>
+  <value>500</value>
+</property>
+
+
+There are 0 datanode(s) running and no node(s) are excluded in this operation.
+remove data from /tmp/paras-agarwal-hadoop
+
+
+Name node is in safe mode.
+hdfs dfsadmin -safemode leave
+hdfs dfsadmin -safemode get
+
+
+4.7 GB of 4.2 GB virtual memory used. Killing container
+<property>
+   <name>yarn.nodemanager.vmem-check-enabled</name>
+    <value>false</value>
+    <description>Whether virtual memory limits will be enforced for containers</description>
+  </property>
+ <property>
+   <name>yarn.nodemanager.vmem-pmem-ratio</name>
+    <value>4</value>
+    <description>Ratio between virtual memory to physical memory when setting memory limits for containers</description>
+  </property>
