@@ -19,15 +19,18 @@ public class TitanicCustomFormatDriver {
         logger.info("TitanicCustomFormatDriver Job Started");
         Configuration conf = new Configuration();
         Job job = Job.getInstance(conf, "TitanicCustomFormatDriver starts");
-
         job.setJarByClass(TitanicCustomFormatDriver.class);
-        job.setMapperClass(TitanicMapper.class);
-        job.setReducerClass(TitanicReducer.class);
 
+        job.setInputFormatClass(TitanicInputFormat.class);
+        job.setMapperClass(TitanicMapper.class);
         job.setMapOutputKeyClass(Key_Value.class);
         job.setMapOutputValueClass(IntWritable.class);
 
-        job.setInputFormatClass(TitanicInputFormat.class);
+        job.setReducerClass(TitanicReducer.class);
+
+        job.setOutputKeyClass(Key_Value.class);
+        job.setOutputValueClass(IntWritable.class);
+
         job.setOutputFormatClass(TextOutputFormat.class);
 
         Path out=new Path(args[1]);

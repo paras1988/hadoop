@@ -92,3 +92,9 @@ hdfs dfsadmin -safemode get
     <value>4</value>
     <description>Ratio between virtual memory to physical memory when setting memory limits for containers</description>
   </property>
+
+
+
+ Debug tips:
+ localhost:8088/conf
+
