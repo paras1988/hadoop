@@ -5,7 +5,6 @@ package com.XMLOutputFormat;
  * format which stores the key and value in XML format.
  */
 
-import com.CustomFormat.Key_Value;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;

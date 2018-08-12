@@ -1,8 +1,6 @@
 package com.XMLOutputFormat;
 
 import org.apache.hadoop.fs.FSDataOutputStream;
-import org.apache.hadoop.fs.FileSystem;
-import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.RecordWriter;
@@ -13,11 +11,8 @@ import java.io.IOException;
 public class XmlRecordWriter extends RecordWriter<Text, IntWritable> {
   private FSDataOutputStream out;
 
-  XmlRecordWriter(TaskAttemptContext job) throws IOException {
-    String file_extension = ".xml";
-    Path file = job.getWorkingDirectory();
-    FileSystem fs = file.getFileSystem(job.getConfiguration());
-    this.out = fs.create(file, false);
+  XmlRecordWriter(FSDataOutputStream out) throws IOException {
+    this.out = out;
     this.out.writeBytes("<Output>\n");
   }
 
